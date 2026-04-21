@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://de2o3eq7c6j64"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyBullet.gd" id="1_30gmd"]
+[ext_resource type="Texture2D" uid="uid://07hvxmpqncj2" path="res://Assets/Sprites/Impact013Red .png" id="1_sq60e"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4c7ok"]
+size = Vector2(8, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2iok"]
+size = Vector2(8, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1m4d"]
+atlas = ExtResource("1_sq60e")
+region = Rect2(744, 0, 186, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wpmt"]
+atlas = ExtResource("1_sq60e")
+region = Rect2(558, 0, 186, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pfa7"]
+atlas = ExtResource("1_sq60e")
+region = Rect2(372, 0, 186, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybooq"]
+atlas = ExtResource("1_sq60e")
+region = Rect2(186, 0, 186, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8efm"]
+atlas = ExtResource("1_sq60e")
+region = Rect2(0, 0, 186, 189)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vsqwa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1m4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wpmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pfa7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybooq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8efm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 11.0
+}]
+
+[node name="EnemyBullet" type="Area2D"]
+script = ExtResource("1_30gmd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+texture = SubResource("PlaceholderTexture2D_4c7ok")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h2iok")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(0.0799999, 0.0878703)
+sprite_frames = SubResource("SpriteFrames_vsqwa")
+frame = 1
+frame_progress = 0.317412
